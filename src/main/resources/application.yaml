@@ -1,0 +1,38 @@
+server:
+  port: 9099
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./db/bgmtv-offline;AUTO_SERVER=TRUE
+    username: admin
+    password: 123456
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false
+    show-sql: true
+    open-in-view: false
+
+  servlet:
+    multipart:
+      max-file-size: 10240MB
+      max-request-size: 10240MB
+
+logging:
+  file:
+    name: ./logs/run.log
+  level:
+    run.ikaros.offline.db.bgmtv: DEBUG
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: INFO
+    org.hibernate.type.descriptor.sql.BasicExtractor: INFO
+    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration: OFF

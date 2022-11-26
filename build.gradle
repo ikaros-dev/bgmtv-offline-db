@@ -1,22 +1,37 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.0'
-	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.springframework.boot' version '2.5.12'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group = 'run.ikaros.offline.db.bgmtv'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
+	mavenLocal()
+	maven { url "https://maven.aliyun.com/nexus/content/groups/public" }
+	maven { url "https://maven.aliyun.com/repository/spring/" }
 	mavenCentral()
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+ext {
+	swaggerVersion = "3.0.0"
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation "io.springfox:springfox-boot-starter:$swaggerVersion"
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
 	runtimeOnly 'com.h2database:h2'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
