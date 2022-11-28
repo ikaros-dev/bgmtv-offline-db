@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    # mariadb database configuration.
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/bgmtv_offline
+    username: root
+    password: 123456
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false
+    show-sql: true
+    open-in-view: false
+
+  servlet:
+    multipart:
+      max-file-size: 10240MB
+      max-request-size: 10240MB
+
+logging:
+  file:
+    name: ./logs/run.log
+  level:
+    run.ikaros.offline.db.bgmtv: DEBUG
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: INFO
+    org.hibernate.type.descriptor.sql.BasicExtractor: INFO
+    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration: OFF

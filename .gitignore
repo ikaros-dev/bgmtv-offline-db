@@ -1,4 +1,3 @@
-HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -40,3 +39,4 @@ out/
 db/
 upload/
 logs/
+caches/

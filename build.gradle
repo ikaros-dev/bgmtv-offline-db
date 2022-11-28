@@ -4,7 +4,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
-group = 'run.ikaros.offline.db.bgmtv'
+group = 'run.ikaros.offlinedb.bgmtv'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_17
 
@@ -35,6 +35,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
 	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
